@@ -1,12 +1,11 @@
 /**
- * smooth-scroll v5.3.6
+ * smooth-scroll v5.3.6b1
  * Animate scrolling to anchor links, by Chris Ferdinandi.
  * http://github.com/cferdinandi/smooth-scroll
  * 
  * Free to use under the MIT License.
  * http://gomakethings.com/mit/
  */
-
 (function (root, factory) {
 	if ( typeof define === 'function' && define.amd ) {
 		define([], factory(root));
@@ -264,8 +263,8 @@
 	 * @param {Boolean} url Whether or not to update the URL history
 	 */
 	var updateUrl = function ( anchor, url ) {
-		if ( history.pushState && (url || url === 'true') ) {
-			history.pushState( null, null, [root.location.protocol, '//', root.location.host, root.location.pathname, root.location.search, anchor].join('') );
+		if ( history.replaceState && (url || url === 'true') ) {
+			history.replaceState( null, null, [root.location.protocol, '//', root.location.host, root.location.pathname, root.location.search, anchor].join('') );
 		}
 	};
 
